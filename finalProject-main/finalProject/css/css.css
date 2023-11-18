@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-gap: 10px;
+}
+
+figure {
+    border: 2px solid #000; /* Default border color */
+    border-radius: 8px; /* Default border radius */
+    overflow: hidden; /* Ensures circular shape with border-radius */
+
+    /* Other figure styles go here */
+}
+
+figcaption {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Tablet view */
+@media screen and (min-width: 772px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure:last-child {
+        grid-column: span 2;
+        border-radius: 50%; /* Circular shape for the last figure */
+    }
+}
+
+/* Large screen view */
+@media screen and (min-width: 992px) {
+    figure:nth-child(3n) {
+        grid-column: span 2;
+        border-radius: 8px; /* Reset border radius for every third figure */
+    }
+}
+
+/* Prefers-reduced-motion media query */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark color scheme media query */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #333; /* Dark background color */
+        color: #ff0; /* Light font color */
+        border-color: #000; /* Black border color */
+    }
+}
